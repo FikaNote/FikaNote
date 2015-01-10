@@ -8,4 +8,5 @@ def hello(name):
 def index():
     return template('<b>Index</b>!')
 
-run(host='fikanote.herokuapp.com', port=80)
+if __name__ == '__main__':
+    run(host='public IP', port=80)
