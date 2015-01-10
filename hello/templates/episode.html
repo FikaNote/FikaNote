@@ -1,12 +1,4 @@
-<ul>
-
-{% for greeting in greetings %}
-    <li>{{ greeting.when }}</li>
-{% endfor %}
-
-</ul>
-
-% include('header.tpl', title='{{episode.title}}')
+{% include "header.html" %}
 
 <span class="date">{{episode.date}}<br>{{episode.year}}</span>
 <h2><a href="/{{episode.number}}/">{{episode.title}} (
@@ -44,4 +36,4 @@
     
   </div>
 
-% include('footer.tpl')
+{% include "footer.html" %}

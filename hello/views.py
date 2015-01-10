@@ -8,9 +8,24 @@ from .models import Greeting
 
 # Create your views here.
 def index(request):
-    r = requests.get('http://httpbin.org/status/418')
-    print r.text
-    return HttpResponse('<pre>' + r.text + '</pre>')
+    episodes = []
+    episodes.append({
+        'agenda':'あれとこれをそれしました' ,
+        'year' : '2015',
+        'date' : '05/Jan',
+        'title' : 'はじめてのFika',
+        'number' : 1
+        })
+    episodes.append({
+        'agenda':'hogeとfugaについて話しました' ,
+        'year' : '2015',
+        'date' : '09/Jan',
+        'title' : '開発者のこれからについて',
+        'number' : 2
+        })
+    return render(request, 'index.html', 
+                  {'episodes': episodes
+                  } )
 
 def episode(request, number):
     persons = []
@@ -29,12 +44,8 @@ def episode(request, number):
     return render(request, 'episode.html', 
                   {'episode': episode, 
                    'shownotes':shownotes, 
-                   'persons':persons, 
+                   'persons':persons 
                    } )
-    r = requests.get('http://httpbin.org/status/418')
-    print r.text
-    return HttpResponse('<pre>' + r.text + '</pre>')
-
 
 def db(request):
 
