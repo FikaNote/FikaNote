@@ -1,39 +1,43 @@
 {% include "header.html" %}
 
-<span class="date">{{episode.date}}<br>{{episode.year}}</span>
-<h2><a href="/{{episode.number}}/">{{episode.title}} (
-    {% for person in persons %}
-    {{person.twitter}}
-    {% endfor %}
-    )</a></h2>
 
-<div class="post">
-  <div class="episode-description">
-    <p>{{episode.agenda}}</p>
-    
-    <div class="episode-people">
-      <h3>Starring</h3>
-      <ul class="people-list inline">
-	{% for person in persons %}
-	<li class="person box">
-          <a href="/people/{{person.twitter}}/" title="{{person.name}}" class="internal">
-            <img class="avatar" src="{{person.avatar}}" alt="{{person.name}}"><br>
-	    <span class="name">{{person.twitter}}</span>
-          </a>
-	</li>
-	{% endfor %}
-    </ul></div>
-    
-    
-    <h3>Show Notes</h3>
-    <div class="shownotes"><ul>
-	{% for shownote in shownotes %}
-	<li><a href="{{shownote.url}}" target="_blank">{{shownote.title}}</a></li>
-	{% endfor %}
-      </ul>
+<div id="contents">
+<div class="episode">
+  <span class="date">{{episode.date}}<br>{{episode.year}}</span>
+  <h2><a href="/{{episode.number}}/">{{episode.title}} (
+      {% for person in persons %}
+      {{person.twitter}}
+      {% endfor %}
+      )</a></h2>
+  
+  <div class="post">
+    <div class="episode-description">
+      <p>{{episode.agenda}}</p>
+      
+      <div class="episode-people">
+	<h3>Starring</h3>
+	<ul class="people-list inline">
+	  {% for person in persons %}
+	  <li class="person box">
+            <a href="/people/{{person.twitter}}/" title="{{person.name}}" class="internal">
+              <img class="avatar" src="{{person.avatar}}" alt="{{person.name}}"><br>
+	      <span class="name">{{person.twitter}}</span>
+            </a>
+	  </li>
+	  {% endfor %}
+      </ul></div>
+      
+      
+      <h3>Show Notes</h3>
+      <div class="shownotes"><ul>
+	  {% for shownote in shownotes %}
+	  <li><a href="{{shownote.url}}" target="_blank">{{shownote.title}}</a></li>
+	  {% endfor %}
+	</ul>
+      </div>
     </div>
-    
-    
   </div>
+</div>
+</div>
 
 {% include "footer.html" %}

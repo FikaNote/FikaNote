@@ -1,0 +1,106 @@
+.episode .date {
+    display: block;
+    left: -20px;
+    top: -15px;
+    background: #313130;
+    width: 45px;
+    height: 45px;
+    padding: 20px 10px 1px 10px;
+    color: #eee;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    text-align: center;
+    position: absolute;
+    font-size: 75%;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    -ms-border-radius: 100px;
+    -o-border-radius: 100px;
+    border-radius: 100px;
+    line-height: 1.2;
+}
+
+.episode {
+    position: relative;
+    background: #fff;
+    padding: 0;
+    margin-top: 40px;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #fff;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    padding: 0;
+    background: #faf9f5 url(/images/body-bg.png);
+    color: #222;
+}
+
+.episode h2 {
+    font-size: 110%;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.3;
+    border-bottom: 1px solid #eee;
+}
+
+.episode h2 a {
+    font-family: "Open Sans Condensed", "Helvetica Neue", sans-serif;
+    display: block;
+    padding: 20px 10px 20px 52px;
+    text-decoration: none;
+}
+
+.episodes {
+    padding-left: 15px;
+
+}
+
+#contents .post h3 {
+    margin-bottom: 0;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ddd;
+}
+
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+}
+
+#contents {
+    max-width: 640px;
+    margin: 30px auto;
+    padding: 10px 30px 40px 30px;
+}
+
+#contents .post h3 {
+    margin-bottom: 0;
+    padding-bottom: 0.2em;
+    border-bottom: 1px solid #ddd;
+}
+
+ul.people-list li {
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.people-list .person {
+    text-align: center;
+}
+
+ul.people-list li.box {
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    margin: 0 0 1em 0;
+    width: 100px;
+}
+
+#contents .post .shownotes ul {
+    margin: 0;
+    padding: 1em 1em 1em 2em;
+}
