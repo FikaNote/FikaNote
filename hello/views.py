@@ -32,14 +32,16 @@ def episode(request, number):
     persons.append({'name':'Kosuke Nagano', 'twitter':'gm_kou'})
     persons.append({'name':'Satoshi Nagano', 'twitter':'sassy_watson'})
     shownotes = []
-    shownotes.append({'url':'http://www.google.com', 'title':'Google'})
-    shownotes.append({'url':'http://www.yahoo.co.jp', 'title':'Yahoo'})
+    shownotes.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
+    shownotes.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
     episode = {
         'agenda':'あれとこれをそれしました' ,
         'year' : '2015',
         'date' : '09/Jan',
         'title' : 'はじめてのFika',
-        'number' : 1
+        'number' : 1,
+        'person' : ['gm_kou', 'sassy_watson'],
+        'shownote' : [1, 2]
         }
     return render(request, 'episode.html', 
                   {'episode': episode, 
