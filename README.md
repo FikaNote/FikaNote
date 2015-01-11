@@ -13,3 +13,8 @@ $ source venv/bin/activate
 ```
 
 And goto `http://localhost:5000`.
+
+# ToDo
+- [X] Create mockup
+- [ ] Create mockup of add/edit item
+- [ ] Create mockup of create shownote
