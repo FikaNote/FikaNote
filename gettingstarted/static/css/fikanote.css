@@ -104,3 +104,96 @@ ul.people-list li.box {
     margin: 0;
     padding: 1em 1em 1em 2em;
 }
+
+#header-site {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #fff;
+    background: #000 url(/static/image/header_background.jpg) center center no-repeat;
+    background-size: cover;
+}
+
+#header-site #header-site-inner {
+    padding: 20px 10px 30px 10px;
+    position: relative;
+    max-width: 639px;
+    margin: auto;
+}
+
+#header-site #header-site-inner h1 {
+    text-shadow: 0 1px 5px #000;
+    font-size: 300%;
+    line-height: 1.4;
+    color: #fff;
+
+}
+
+#header-site #header-site-inner h1 a {
+    color: #fff;
+}
+
+#header-site #header-site-inner h1 span {
+    display: block;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+#header-site #header-site-inner nav {
+    position: absolute;
+    right: 30px;
+    bottom: 0;
+}
+
+#header-site #header-site-inner nav ul {
+    margin: 0;
+    padding: 0;
+}
+
+#header-site #header-site-inner nav ul li {
+    display: block;
+    float: left;
+}
+
+#header-site #header-site-inner nav ul li a {
+    font-weight: bold;
+    display: block;
+    width: 5em;
+    padding: 8px;
+    margin: 0 1px;
+    color: #fff;
+    text-align: center;
+    font-size: 70%;
+    background: #000;
+    background: rgba(49,49,48,0.9);
+}
+
+#footer-site {
+    background: #000;
+    margin-top: 30px;
+    padding: 10px 30px;
+    border-top: 1px solid #fff;
+}
+
+#footer-site #footer-site-inner {
+    overflow: hidden;
+    max-width: 960px;
+    margin: auto;
+    color: #bbb;
+    font-size: 80%;
+}
+
+#footer-site #footer-site-inner .footer-site-side {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    width: 33%;
+    padding: 10px 20px;
+}
+
+#footer-site #footer-site-inner .copyright {
+    clear: both;
+    text-align: center;
+    font-size: 95%;
+    color: #666;
+    margin: 2em;
+}
