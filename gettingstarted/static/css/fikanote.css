@@ -197,3 +197,16 @@ ul.people-list li.box {
     color: #666;
     margin: 2em;
 }
+
+ul.people-list img.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    -webkit-border-radius: 80px;
+    -moz-border-radius: 80px;
+    background-size: 80px 80px;
+}
+
+ul.people-list li.box .name {
+    font-size: 80%;
+}
