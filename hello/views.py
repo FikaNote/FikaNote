@@ -59,6 +59,14 @@ def agenda(request):
                   {'agendas': agendas
                   } )
 
+def add(request):
+    if request.method == 'POST':
+        content = 'not support this method'
+        return HttpResponse(content, content_type='text/plain')
+    else:
+        content = 'not support this method'
+        return HttpResponse(content, content_type='text/plain')
+
 def db(request):
 
     greeting = Greeting()
