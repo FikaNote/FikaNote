@@ -29,8 +29,10 @@ def index(request):
 
 def episode(request, number):
     persons = []
-    persons.append({'name':'Kosuke Nagano', 'twitter':'gm_kou'})
-    persons.append({'name':'Satoshi Nagano', 'twitter':'sassy_watson'})
+    persons.append({'name':'Kosuke Nagano', 'twitter':'gm_kou', 
+                    'avatar':'https://pbs.twimg.com/profile_images/780617517/IMG_0151_400x400.JPG'})
+    persons.append({'name':'Satoshi Nagano', 'twitter':'sassy_watson',
+                    'avatar':'https://pbs.twimg.com/profile_images/1197190603/bird_bigger_400x400.png'})
     shownotes = []
     shownotes.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
     shownotes.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
@@ -48,6 +50,14 @@ def episode(request, number):
                    'shownotes':shownotes, 
                    'persons':persons 
                    } )
+
+def agenda(request):
+    agendas = []
+    agendas.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
+    agendas.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
+    return render(request, 'agenda.html', 
+                  {'agendas': agendas
+                  } )
 
 def db(request):
 

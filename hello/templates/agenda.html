@@ -1,0 +1,17 @@
+{% include "header.html" %}
+
+
+<div id="contents">
+<div class="episode">
+  
+  <h3>Agendas</h3>
+  <div class="shownotes"><ul>
+      {% for agenda in agendas %}
+      <li><a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+{% include "footer.html" %}
