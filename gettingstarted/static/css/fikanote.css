@@ -105,6 +105,16 @@ ul.people-list li.box {
     padding: 1em 1em 1em 2em;
 }
 
+#contents .agenda ul {
+    margin: 0;
+    padding: 1em 1em 1em 2em;
+}
+
+#contents .agenda input[type="text"] {
+    width:50%;
+}
+
+
 #header-site {
     margin-bottom: 30px;
     border-bottom: 1px solid #fff;

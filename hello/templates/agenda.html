@@ -1,17 +1,18 @@
 {% include "header.html" %}
 
+<script type="text/javascript" async="" src="/static/js/postagenda.js"></script>
 
 <div id="contents">
 <div class="episode">
   
   <h3>Agendas</h3>
-  <div class="shownotes"><ul>
+  <div class="agenda"><ul>
       {% for agenda in agendas %}
       <li><a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a></li>
       {% endfor %}
+      <li><input id="input_agenda" type="text" placeholder="input url"/></li>
     </ul>
   </div>
 </div>
-
 
 {% include "footer.html" %}
