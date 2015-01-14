@@ -3,6 +3,8 @@
 import requests
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
+from django.template import RequestContext
 
 from .models import Greeting
 
@@ -55,9 +57,9 @@ def agenda(request):
     agendas = []
     agendas.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
     agendas.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
-    return render(request, 'agenda.html', 
-                  {'agendas': agendas
-                  } )
+    context = RequestContext(request, {'agendas':agendas})
+    return render_to_response("agenda.html", context)
+
 
 def add(request):
     if request.method == 'POST':

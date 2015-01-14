@@ -18,12 +18,13 @@
 	  <a href="{{agenda.url}}">{{agenda.text}}</a></span>
       </li>
     </ul>
+    {% endverbatim %}
     <form ng-submit="addAgenda()">
+      {% csrf_token %} 
       <input type="text" ng-model="agendaText"  size="30"
              placeholder="add new agenda here">
       <input class="btn-primary" type="submit" value="add">
     </form>
-    {% endverbatim %}
   </div>
 
 </div>
