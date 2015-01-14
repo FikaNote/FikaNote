@@ -1,3 +1,8 @@
+angular.module('addAgenda', []).config(function($httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken'
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken'
+});
+
 angular.module('addAgenda', [])
 .controller('AgendaController', function($scope, $http) {
   $scope.agendas = [];
