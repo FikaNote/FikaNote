@@ -16,6 +16,10 @@ And goto `http://localhost:5000`.
 
 # ToDo
 - [X] Create mockup
-- [ ] Create mockup of add/edit item
-- [ ] Create mockup of create shownote
+- [ ] add shownote
+- [ ] edit shownote
+- [ ] add agenda
+- [ ] edit agenda
+- [X] Create mockup of create shownote
 - [ ] Solve CSRF protection error
+- [ ] Fix date display
