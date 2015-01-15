@@ -25,27 +25,22 @@ def index(request):
                    } )
 
 def episode(request, number):
-    persons = []
-    persons.append({'name':'Kosuke Nagano', 'twitter':'gm_kou', 
-                    'avatar':'https://pbs.twimg.com/profile_images/780617517/IMG_0151_400x400.JPG'})
-    persons.append({'name':'Satoshi Nagano', 'twitter':'sassy_watson',
-                    'avatar':'https://pbs.twimg.com/profile_images/1197190603/bird_bigger_400x400.png'})
-    shownotes = []
-    shownotes.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
-    shownotes.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
-    episode = {
-        'agenda':'あれとこれをそれしました' ,
-        'year' : '2015',
-        'date' : '09/Jan',
-        'title' : 'はじめてのFika',
-        'number' : 1,
-        'person' : ['gm_kou', 'sassy_watson'],
-        'shownote' : [1, 2]
-        }
+    client = pymongo.MongoClient(MONGODB_URI)
+    db = client.get_default_database()
+    fikanote = db['fikanotedb']
+    episodes = fikanote.find({"number":int(number)})
+    if episodes.count() == 0:
+        episode = []
+        episode.append({'title': 'no such episode'})
+    else:
+        episode = episodes[0]
+    person = episode['person']
+    shownotes = episode['shownotes']
+
     return render(request, 'episode.html', 
                   {'episode': episode, 
-                   'shownotes':shownotes, 
-                   'persons':persons 
+                   'person' : person,
+                   'shownotes' : shownotes,
                    } )
 
 def agenda(request):
