@@ -4,7 +4,7 @@
   <div class="episodes">
     {% for episode in episodes %}
     <div class="episode">
-      <span class="date">{{episode.date}}<br>{{episode.year}}</span>
+      <span class="date">{{episode.date}}</span>
       <h2><a href="/{{episode.number}}/">{{episode.title}} </a></h2>
       <div class="excerpt">
 	<p>{{episode.agenda}}</p>

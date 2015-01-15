@@ -18,3 +18,4 @@ And goto `http://localhost:5000`.
 - [X] Create mockup
 - [ ] Create mockup of add/edit item
 - [ ] Create mockup of create shownote
+- [ ] Solve CSRF protection error
