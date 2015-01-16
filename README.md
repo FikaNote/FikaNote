@@ -23,3 +23,4 @@ And goto `http://localhost:5000`.
 - [X] Create mockup of create shownote
 - [ ] Solve CSRF protection error
 - [ ] Fix date display
+- [ ] Add Google Analytics
