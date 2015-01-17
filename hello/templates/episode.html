@@ -3,12 +3,8 @@
 
 <div id="contents">
 <div class="episode">
-  <span class="date">{{episode.date}}</span>
-  <h2><a href="/{{episode.number}}/">{{episode.title}} (
-      {% for person in persons %}
-      {{person.twitter}}
-      {% endfor %}
-      )</a></h2>
+  <span class="date">{{episode.date|date:"M d Y"}}</span>
+  <h2><a href="/{{episode.number}}/">{{episode.title}}</a></h2>
   
   <div class="post">
     <div class="episode-description">
