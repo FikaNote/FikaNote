@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	{% if episode %}
 	<title>Fika : {{episode.number}} : {{episode.title}}</title>
+	{% else %}
+	<title>Fika </title>
+	{% endif %}
+
 	{% load staticfiles %}
 	<link rel="stylesheet" href="/static/css/fikanote.css" type="text/css" />
 	<!-- script src="/static/fikanote.js"></script -->
