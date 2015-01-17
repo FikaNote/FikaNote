@@ -24,3 +24,4 @@ And goto `http://localhost:5000`.
 - [ ] Solve CSRF protection error
 - [ ] Fix date display
 - [X] Add Google Analytics
+- [ ] Add Person page. (/person/<person_name>) 
