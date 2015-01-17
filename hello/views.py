@@ -44,12 +44,14 @@ def episode(request, number):
                    } )
 
 def agenda(request):
-    agendas = []
-    agendas.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
-    agendas.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
-    context = RequestContext(request, {'agendas':agendas})
-    return render_to_response("agenda.html", context)
-
+    client = pymongo.MongoClient(MONGODB_URI)
+    db = client.get_default_database()
+    fikanote = db['agendadb']
+    agendas = fikanote.find().sort("date", pymongo.DESCENDING)
+    client.close()
+    return render(request, 'agenda.html', 
+                  {'agendas': agendas
+                   } )
 
 def add(request):
     if request.method == 'POST':
