@@ -18,10 +18,10 @@ And goto `http://localhost:5000`.
 - [X] Create mockup
 - [ ] add shownote
 - [ ] edit shownote
-- [ ] add agenda
+- [X] add agenda
 - [ ] edit agenda
 - [X] Create mockup of create shownote
-- [ ] Solve CSRF protection error
-- [ ] Fix date display
+- [X] Solve CSRF protection error
+- [X] Fix date display
 - [X] Add Google Analytics
 - [ ] Add Person page. (/person/<person_name>) 
