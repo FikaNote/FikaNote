@@ -10,7 +10,11 @@
   <div ng-controller="AgendaController" class="agenda">
     <ul>
       {% for agenda in agendas %}
+        {% if agenda.title %}
       <li><a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a></li>
+        {% else %}
+      <li><a href="{{agenda.url}}" target="_blank">No Title</a></li>
+        {% endif %}
       {% endfor %}
       {% verbatim %}
       <li ng-repeat="agenda in agendas">

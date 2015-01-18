@@ -48,8 +48,8 @@ def episode(request, number):
 def agenda(request):
     client = pymongo.MongoClient(MONGODB_URI)
     db = client.get_default_database()
-    fikanote = db['agendadb']
-    agendas = fikanote.find().sort("date", pymongo.DESCENDING)
+    agendadb = db['agendadb']
+    agendas = agendadb.find().sort("date", pymongo.DESCENDING)
     client.close()
 
     form = AgendaForm() 
@@ -63,10 +63,12 @@ def add(request):
     if request.method == 'POST': 
         form = AgendaForm(request.POST) 
         if form.is_valid(): 
-            print(form)
-        else:
-            print(form)            
-                
+            client = pymongo.MongoClient(MONGODB_URI)
+            db = client.get_default_database()
+            agendadb = db['agendadb']
+            agendadb.insert({'url': form.cleaned_data['url']})
+            client.close()
+
     return HttpResponseRedirect('/agenda/') 
 
 def db(request):
