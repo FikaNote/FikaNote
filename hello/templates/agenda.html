@@ -19,7 +19,7 @@
       </li>
     </ul>
     {% endverbatim %}
-    <form action="/contact/" method="POST">{% csrf_token %}
+    <form action="/add/" method="POST">{% csrf_token %}
       {{ form.as_ul }}
       <input type="submit" value="Submit" />
     </form>
