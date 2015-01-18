@@ -3,6 +3,7 @@
 import requests
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -15,7 +16,6 @@ from agendaform import AgendaForm
 
 MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds029811.mongolab.com:29811/fikanotedb' 
 
-# Create your views here.
 def index(request):
     client = pymongo.MongoClient(MONGODB_URI)
     db = client.get_default_database()
