@@ -15,7 +15,7 @@ from pymongo import ASCENDING, DESCENDING
 from agendaform import AgendaForm
 import urllib2
 from BeautifulSoup import BeautifulSoup
-
+import datetime
 
 MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds029811.mongolab.com:29811/fikanotedb' 
 
@@ -73,7 +73,9 @@ def add(request):
             client = pymongo.MongoClient(MONGODB_URI)
             db = client.get_default_database()
             agendadb = db['agendadb']
-            agendadb.insert({'url': url, 'title':title})
+            agendadb.insert({'url': url, 
+                             'title':title,
+                             'date': datetime.datetime.utcnow()})
             client.close()
 
     return HttpResponseRedirect('/agenda/') 
