@@ -3,6 +3,7 @@
 import requests
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -11,9 +12,13 @@ from .models import Greeting
 import pymongo
 from pymongo import ASCENDING, DESCENDING
 
+from agendaform import AgendaForm
+import urllib2
+from BeautifulSoup import BeautifulSoup
+import datetime
+
 MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds029811.mongolab.com:29811/fikanotedb' 
 
-# Create your views here.
 def index(request):
     client = pymongo.MongoClient(MONGODB_URI)
     db = client.get_default_database()
@@ -44,24 +49,36 @@ def episode(request, number):
                    } )
 
 def agenda(request):
-    agendas = []
-    agendas.append({'id':1, 'url':'http://www.google.com', 'title':'Google', 'introducer':'gm_kou' })
-    agendas.append({'id':2, 'url':'http://www.yahoo.co.jp', 'title':'Yahoo', 'introducer':'sassy_watson' })
-    context = RequestContext(request, {'agendas':agendas})
-    return render_to_response("agenda.html", context)
+    client = pymongo.MongoClient(MONGODB_URI)
+    db = client.get_default_database()
+    agendadb = db['agendadb']
+    agendas = agendadb.find().sort("date", pymongo.DESCENDING)
+    client.close()
 
+    form = AgendaForm() 
+
+    return render(request, 'agenda.html', 
+                  {'agendas': agendas, 
+                   'form': form
+                   } )
 
 def add(request):
-    if request.method == 'POST':
-        response_data = {}
-        response_data['result'] = 'success'
-        response_data['message'] = 'success'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
-    else:
-        response_data = {}
-        response_data['result'] = 'failed'
-        response_data['message'] = 'not support this method'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    if request.method == 'POST': 
+        form = AgendaForm(request.POST) 
+        if form.is_valid(): 
+            url = form.cleaned_data['url']
+            soup = BeautifulSoup(urllib2.urlopen(url))
+            title = soup.title.string
+
+            client = pymongo.MongoClient(MONGODB_URI)
+            db = client.get_default_database()
+            agendadb = db['agendadb']
+            agendadb.insert({'url': url, 
+                             'title':title,
+                             'date': datetime.datetime.utcnow()})
+            client.close()
+
+    return HttpResponseRedirect('/agenda/') 
 
 def db(request):
 
