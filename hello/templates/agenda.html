@@ -1,13 +1,21 @@
 {% include "header.html" %}
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
-<script type="text/javascript" src="/static/js/postagenda.js"></script>
+<!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+<script type="text/javascript" src="/static/js/postagenda.js"></script-->
 
-<div id="contents" ng-app="addAgenda">
+<div id="contents">
 <div class="episode">
   
+  <h3>Input suggested agenda.</h3>
+  <div class="agenda">
+      <form action="/add/" method="POST">{% csrf_token %}
+      {{ form.as_ul }}
+      <input type="submit" value="Submit" />
+      </form>
+  </div>
+
   <h3>Agendas</h3>
-  <div ng-controller="AgendaController" class="agenda">
+  <div class="agenda">
     <ul>
       {% for agenda in agendas %}
         {% if agenda.title %}
@@ -16,17 +24,7 @@
       <li><a href="{{agenda.url}}" target="_blank">No Title</a></li>
         {% endif %}
       {% endfor %}
-      {% verbatim %}
-      <li ng-repeat="agenda in agendas">
-        <span class="done-{{agenda.done}}">
-	  <a href="{{agenda.url}}">{{agenda.text}}</a></span>
-      </li>
     </ul>
-    {% endverbatim %}
-    <form action="/add/" method="POST">{% csrf_token %}
-      {{ form.as_ul }}
-      <input type="submit" value="Submit" />
-    </form>
   </div>
 
 </div>
