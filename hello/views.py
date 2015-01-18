@@ -11,6 +11,8 @@ from .models import Greeting
 import pymongo
 from pymongo import ASCENDING, DESCENDING
 
+from agendaform import AgendaForm
+
 MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds029811.mongolab.com:29811/fikanotedb' 
 
 # Create your views here.
@@ -49,21 +51,23 @@ def agenda(request):
     fikanote = db['agendadb']
     agendas = fikanote.find().sort("date", pymongo.DESCENDING)
     client.close()
+
+    form = AgendaForm() 
+
     return render(request, 'agenda.html', 
-                  {'agendas': agendas
+                  {'agendas': agendas, 
+                   'form': form
                    } )
 
 def add(request):
-    if request.method == 'POST':
-        response_data = {}
-        response_data['result'] = 'success'
-        response_data['message'] = 'success'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
-    else:
-        response_data = {}
-        response_data['result'] = 'failed'
-        response_data['message'] = 'not support this method'
-        return HttpResponse(json.dumps(response_data), content_type="application/json")
+    if request.method == 'POST': 
+        form = AgendaForm(request.POST) 
+        if form.is_valid(): 
+            print(form)
+        else:
+            print(form)            
+                
+    return HttpResponseRedirect('/agenda/') 
 
 def db(request):
 

@@ -19,11 +19,9 @@
       </li>
     </ul>
     {% endverbatim %}
-    <form ng-submit="addAgenda()">
-      {% csrf_token %} 
-      <input type="text" ng-model="agendaText"  size="30"
-             placeholder="add new agenda here">
-      <input class="btn-primary" type="submit" value="add">
+    <form action="/contact/" method="POST">{% csrf_token %}
+      {{ form.as_ul }}
+      <input type="submit" value="Submit" />
     </form>
   </div>
 
