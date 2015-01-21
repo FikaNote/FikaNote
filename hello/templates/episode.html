@@ -13,13 +13,8 @@
       <div class="episode-people">
 	<h3>Starring</h3>
 	<ul class="people-list inline">
-	  {% for person in persons %}
-	  <li class="person box">
-            <a href="/people/{{person.twitter}}/" title="{{person.name}}" class="internal">
-              <img class="avatar" src="{{person.avatar}}" alt="{{person.name}}"><br>
-	      <span class="name">{{person.twitter}}</span>
-            </a>
-	  </li>
+	  {% for name in person %}
+	    <li>{{name}}</li>
 	  {% endfor %}
       </ul></div>
       

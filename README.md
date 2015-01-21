@@ -25,5 +25,5 @@ And goto `http://localhost:5000`.
 - [X] Solve CSRF protection error
 - [X] Fix date display
 - [X] Add Google Analytics
-- [ ] Show attendee name.
+- [X] Show attendee name.
 - [ ] Add Person page. (/person/<person_name>) 
