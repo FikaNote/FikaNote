@@ -19,9 +19,9 @@
     <ul>
       {% for agenda in agendas %}
         {% if agenda.title %}
-      <li><a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a></li>
+      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">{{agenda.title}}</a></li>
         {% else %}
-      <li><a href="{{agenda.url}}" target="_blank">No Title</a></li>
+      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">No Title</a></li>
         {% endif %}
       {% endfor %}
     </ul>
