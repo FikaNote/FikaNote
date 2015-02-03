@@ -1,6 +1,7 @@
 # FikaNote
 ShowNote service.
 
+[![Code Health](https://landscape.io/github/gmkou/FikaNote/master/landscape.svg?style=flat)](https://landscape.io/github/gmkou/FikaNote/master)
 
 # Usage
 
