@@ -12,7 +12,8 @@ $(document).ready(function() {
             },
             'dataType':'json',
             'success':function(response){  
-                 $('#agenda_list').prepend('<li><a href="' + response.url + 'target="_blank" class="livepreview"> ' + response.title + '</a></li>')
+                 $('#agenda_list').prepend('<li><a href="' + response.url + 'target="_blank" class="livepreview"> ' + response.title + '</a></li>');
+                $('#id_url').val('');
             },
         });
         return false;
