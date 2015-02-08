@@ -49,27 +49,28 @@ def episode(request, number):
                    } )
 
 def agenda(request):
-    client = pymongo.MongoClient(MONGODB_URI)
-    db = client.get_default_database()
-    agendadb = db['agendadb']
-    agendas = agendadb.find().sort("date", pymongo.DESCENDING)
-    client.close()
+    import json
+    from django.http import HttpResponse,Http404
 
-    form = AgendaForm() 
+    if request.method == 'GET': 
+        client = pymongo.MongoClient(MONGODB_URI)
+        db = client.get_default_database()
+        agendadb = db['agendadb']
+        agendas = agendadb.find().sort("date", pymongo.DESCENDING)
+        client.close()
+        form = AgendaForm() 
+        return render(request, 'agenda.html', 
+                      {'agendas': agendas, 
+                       'form': form
+                       } )
 
-    return render(request, 'agenda.html', 
-                  {'agendas': agendas, 
-                   'form': form
-                   } )
-
-def add(request):
-    if request.method == 'POST': 
+    elif request.method == 'POST': 
         form = AgendaForm(request.POST) 
         if form.is_valid(): 
             url = form.cleaned_data['url']
             soup = BeautifulSoup(urllib2.urlopen(url))
             title = soup.title.string
-
+            
             client = pymongo.MongoClient(MONGODB_URI)
             db = client.get_default_database()
             agendadb = db['agendadb']
@@ -77,8 +78,18 @@ def add(request):
                              'title':title,
                              'date': datetime.datetime.utcnow()})
             client.close()
+            response = json.dumps({'status':'success', 'url':url, 'title':title})  # convert to JSON
+        else:
+            response = json.dumps({'status':'fail'})  # convert to JSON
 
+        return HttpResponse(response,mimetype="text/javascript")  
+        
+    else:
+        raise Http404
+
+def add(request):
     return HttpResponseRedirect('/agenda/') 
+
 
 def db(request):
 
