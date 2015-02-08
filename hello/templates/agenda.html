@@ -1,5 +1,26 @@
 {% include "header.html" %}
 
+<script type="text/javascript" src="/static/js/csrf_token_ajax.js"></script>
+<script>
+$(document).ready(function() {
+    $('#agenda').submit(function() {  // AJAX by submit
+        $.ajax({
+            'url':$('form#agenda').attr('action'),
+            'type':'POST',
+            'data':{
+                'url':$('#id_url').val(),
+            },
+            'dataType':'json',
+            'success':function(response){  // 通信が成功したら動く処理で、引数には返ってきたレスポンスが入る
+                alert(response.status);  // レスポンスからデータを取り出してアラート
+               //add to agenda list in client side.
+            },
+        });
+        return false;
+    });
+});
+</script>
+
 <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
 <script type="text/javascript" src="/static/js/postagenda.js"></script-->
 
@@ -8,7 +29,7 @@
   
   <h3>Input suggested agenda.</h3>
   <div class="agenda">
-      <form action="/add/" method="POST">{% csrf_token %}
+      <form id="agenda" action="/agenda/" method="POST">{% csrf_token %}
       {{ form.as_ul }}
       <input type="submit" value="Submit" />
       </form>
