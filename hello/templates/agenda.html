@@ -11,9 +11,8 @@ $(document).ready(function() {
                 'url':$('#id_url').val(),
             },
             'dataType':'json',
-            'success':function(response){  // 通信が成功したら動く処理で、引数には返ってきたレスポンスが入る
-                alert(response.status);  // レスポンスからデータを取り出してアラート
-               //add to agenda list in client side.
+            'success':function(response){  
+                 $('#agenda_list').prepend('<li><a href="' + response.url + 'target="_blank" class="livepreview"> ' + response.title + '</a></li>')
             },
         });
         return false;
@@ -37,7 +36,7 @@ $(document).ready(function() {
 
   <h3>Agendas</h3>
   <div class="agenda">
-    <ul>
+    <ul id="agenda_list">
       {% for agenda in agendas %}
         {% if agenda.title %}
       <li><a href="{{agenda.url}}" target="_blank" class="livepreview">{{agenda.title}}</a></li>

@@ -66,7 +66,6 @@ def agenda(request):
 
     elif request.method == 'POST': 
         form = AgendaForm(request.POST) 
-        status = 'success'
         if form.is_valid(): 
             url = form.cleaned_data['url']
             soup = BeautifulSoup(urllib2.urlopen(url))
@@ -79,10 +78,10 @@ def agenda(request):
                              'title':title,
                              'date': datetime.datetime.utcnow()})
             client.close()
+            response = json.dumps({'status':'success', 'url':url, 'title':title})  # convert to JSON
         else:
-            status = 'fail'
+            response = json.dumps({'status':'fail'})  # convert to JSON
 
-        response = json.dumps({'status':status})  # convert to JSON
         return HttpResponse(response,mimetype="text/javascript")  
         
     else:
