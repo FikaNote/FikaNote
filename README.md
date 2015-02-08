@@ -21,6 +21,7 @@ And goto `http://localhost:5000`.
 - [ ] add shownote
 - [ ] edit shownote
 - [X] add agenda
+- [ ] add agenda by AJAX
 - [ ] edit agenda
 - [ ] delete agenda / move to shownote
 - [X] Create mockup of create shownote
