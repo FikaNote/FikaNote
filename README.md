@@ -29,6 +29,8 @@ And goto `http://localhost:5000`.
 - [X] Fix date display
 - [X] Add Google Analytics
 - [X] Show attendee name.
+- [ ] Add Login function(github)
 - [ ] Add Person page. (/person/<person_name>)
 - [ ] Track link click. (/link/<id_url_in_agenda>)
 - [ ] Add database backup script.
+
