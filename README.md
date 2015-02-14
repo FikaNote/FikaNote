@@ -13,6 +13,19 @@ ShowNote service.
 
 ## Setup environments
 
+### Mac OS X
+
+1. Install [homebrew].
+2. Run `brew install pyenv` .
+3. To build python, install formula
+    - `bash brew install readline; bash link readline`
+    - See https://github.com/yyuu/pyenv/wiki/Common-build-problems .
+4. Run `pyenv install 2.7.8` to build and install Python.
+5. Run `pyenv global 2.7.8` to switch current version.
+6. Setup `virtualenv`. See https://virtualenv.pypa.io/en/latest/installation.html .
+    - `pip` way is recommended
+7. To build psycopg2, run `brew install libpqxx`
+
 ### Ubuntu 14.04
 
 1. Setup `pyenv`. See https://github.com/yyuu/pyenv-installer .
@@ -75,5 +88,6 @@ And goto `http://localhost:5000`.
 - [ ] Track link click. (/link/<id_url_in_agenda>)
 - [ ] Add database backup script.
 
+[homebrew]:http://brew.sh/
 [honcho]:https://github.com/nickstenning/honcho
 [foreman]:https://rubygems.org/gems/foreman
