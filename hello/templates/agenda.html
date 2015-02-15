@@ -3,19 +3,22 @@
 <script type="text/javascript" src="/static/js/csrf_token_ajax.js"></script>
 <script>
 $(document).ready(function() {
+    $('#id_url').focus();
     $('#agenda').submit(function() {  // AJAX by submit
-        $.ajax({
-            'url':$('form#agenda').attr('action'),
-            'type':'POST',
-            'data':{
-                'url':$('#id_url').val(),
-            },
-            'dataType':'json',
-            'success':function(response){  
-                 $('#agenda_list').prepend('<li><a href="' + response.url + 'target="_blank" class="livepreview"> ' + response.title + '</a></li>');
-                $('#id_url').val('');
-            },
-        });
+        if ($('#id_url').val() === '') {
+            return false;
+        }
+
+        var url = $('form#agenda').attr('action');
+        var data = {url: $('#id_url').val()}
+        $.post(url, data, 'json')
+         .done(function(response) {
+             $('#agenda_list').prepend('<li><a href="' + response.url + '" target="_blank" class="livepreview"> ' + response.title + '</a></li>');
+             $('#id_url').empty();
+         })
+         .fail(function(response) {
+             console.warn(response);
+         });
         return false;
     });
 });
@@ -39,11 +42,7 @@ $(document).ready(function() {
   <div class="agenda">
     <ul id="agenda_list">
       {% for agenda in agendas %}
-        {% if agenda.title %}
-      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">{{agenda.title}}</a></li>
-        {% else %}
-      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">No Title</a></li>
-        {% endif %}
+      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">{{agenda.title|default:"No Title"}}</a></li>
       {% endfor %}
     </ul>
   </div>
