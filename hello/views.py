@@ -61,7 +61,7 @@ def agenda(request):
         else:
             response = json.dumps({'status':'fail'})  # convert to JSON
 
-        return HttpResponse(response,mimetype="text/javascript")  
+        return HttpResponse(response, content_type="application/json")
         
     else:
         raise Http404
