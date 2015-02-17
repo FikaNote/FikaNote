@@ -35,3 +35,4 @@ And goto `http://localhost:5000`.
 - [ ] Add database backup script.
 - [ ] Add RSS function
 - [ ] Add API.
+- [ ] Realtime update/reflect agenda by several browser window. 
