@@ -5,5 +5,5 @@ python:
 install:
   - "pip install -r requirements.txt --allow-all-external --use-mirrors"
 # command to run tests
-script: nosetests
+script: DJANGO_SETTINGS_MODULE="gettingstarted.settings" nosetests
 

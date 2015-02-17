@@ -53,7 +53,8 @@ def agenda(request):
         form = AgendaForm(request.POST) 
         if form.is_valid(): 
             url = form.cleaned_data['url']
-            soup = BeautifulSoup(urllib2.urlopen(url))
+            req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
+            soup = BeautifulSoup(urllib2.urlopen(req))
             title = soup.title.string
             AgendaDB(url=url, title=title, date=datetime.datetime.utcnow()).save()
 
