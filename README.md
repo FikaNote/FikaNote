@@ -18,12 +18,12 @@ And goto `http://localhost:5000`.
 
 # ToDo
 - [X] Create mockup
-- [ ] add shownote
+- [X] add shownote
 - [ ] edit shownote
 - [X] add agenda
 - [X] add agenda by AJAX
 - [ ] edit agenda
-- [ ] delete agenda / move to shownote
+- [X] delete agenda / move to shownote
 - [X] Create mockup of create shownote
 - [X] Solve CSRF protection error
 - [X] Fix date display
