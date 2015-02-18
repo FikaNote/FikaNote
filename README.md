@@ -33,6 +33,6 @@ And goto `http://localhost:5000`.
 - [ ] Add Person page. (/person/<person_name>)
 - [ ] Track link click. (/link/<id_url_in_agenda>)
 - [ ] Add database backup script.
-- [ ] Add RSS function
+- [X] Add Feed function
 - [ ] Add API.
 - [ ] Realtime update/reflect agenda by several browser window. 
