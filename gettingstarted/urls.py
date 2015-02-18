@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 import hello.views
+import hello.feed
 
 urlpatterns = patterns('',
     # Examples:
@@ -14,7 +15,8 @@ urlpatterns = patterns('',
     url(r'^(?P<number>\d+)', hello.views.episode, name='episode'),
     url(r'^agenda', hello.views.agenda, name='agenda'),
     url(r'^add', hello.views.add, name='add'),
-    url(r'^db', hello.views.db, name='db'),
+    url(r'^feed/', hello.feed.feed, name='feed'),
     url(r'^admin/', include(admin.site.urls)),
+
 
 )
