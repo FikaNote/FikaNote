@@ -17,7 +17,7 @@ def feed(request):
     for episode in episodes:
         url = 'https://fikanote.herokuapp.com/%d/' % episode.number
         feed.add_item(
-            title=episode.title
+            title='FikaNote %d: %s' % (episode.number ,episode.title)
             , link=url
             , author_email='Kosuke Nagano'
             , description=episode.agenda
