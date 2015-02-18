@@ -6,7 +6,7 @@ from .models import FikanoteDB
 from django.utils import feedgenerator
 
 def feed(request):
-    feed=feedgenerator.Atom1Feed(
+    feed=feedgenerator.Rss201rev2Feed(
         title='FikaNote'
         , link='https://fikanote.herokuapp.com/'
         , description='Talking about Tech, Software Development and Gadgets with Coffee.'
