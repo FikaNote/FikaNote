@@ -8,9 +8,10 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from .models import Greeting
-from .models import FikanoteDB, AgendaDB
+from .models import FikanoteDB, AgendaDB, Shownote
 
 from agendaform import AgendaForm
+from shownoteform import ShownoteForm
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import datetime
@@ -59,6 +60,50 @@ def agenda(request):
             AgendaDB(url=url, title=title, date=datetime.datetime.utcnow()).save()
 
             response = json.dumps({'status':'success', 'url':url, 'title':title})  # convert to JSON
+        else:
+            response = json.dumps({'status':'fail'})  # convert to JSON
+
+        return HttpResponse(response, content_type="application/json")
+        
+    else:
+        raise Http404
+
+def shownote(request):
+    import json
+    from django.http import HttpResponse,Http404
+
+    if request.method == 'GET': 
+        agendas = AgendaDB.objects().order_by('-date')
+        return render(request, 'edit_shownote.html', 
+                      {'agendas': agendas 
+                       , 'agendaform': AgendaForm()
+                       , 'shownoteform': ShownoteForm() 
+                       } )
+
+    elif request.method == 'POST': 
+        form = ShownoteForm(request.POST) 
+        if form.is_valid(): 
+            number = FikanoteDB.objects().count()+1
+            # add to shownote
+            shownotes = []
+            list_title = request.POST.getlist('agenda_title')
+            list_url = request.POST.getlist('agenda_url')
+            list_id = request.POST.getlist('agenda_id')
+            for i in range(len(list_title)):
+                shownotes.append(Shownote(title=list_title[i], url=list_url[i]))
+
+            FikanoteDB(number = number
+                       , title=form.cleaned_data['title']
+                       , person=form.cleaned_data['person'].split(",")
+                       , agenda=form.cleaned_data['agenda']
+                       , date=datetime.datetime.utcnow()
+                       , shownotes=shownotes
+                       ).save()
+            # delete id's item from agendadb
+            for i in range(len(list_id)):
+                AgendaDB.objects.filter(id__exact=list_id[i]).delete()
+
+            response = json.dumps({'status':'success'})  # convert to JSON
         else:
             response = json.dumps({'status':'fail'})  # convert to JSON
 

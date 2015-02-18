@@ -1,0 +1,67 @@
+{% include "header.html" %}
+
+<link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+<script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+
+  <style>
+  .sortableContainer {
+    width: 300px;
+    float: left;
+  }
+  #sortable1, #sortable2 {
+    border: 1px solid #ccc;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 5px 0 0 0;
+    margin-right: 10px;
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 0 5px 5px 5px;
+    padding: 5px;
+    font-size: 0.9em;
+  }
+  </style>
+  <script>
+  $(function() {
+    $( "#sortable1, #sortable2" ).sortable({
+      connectWith: ".connectedSortable"
+    }).disableSelection();
+  });
+  </script>
+
+<div id="contents">
+
+  <div class="sortableContainer"> 
+    <span>Agenda</span>
+    <ul id="sortable1" class="connectedSortable">
+      {% for agenda in agendas %}
+      <li class="ui-state-default">
+	<a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a>
+	<input type="hidden" name="agenda_title" value="{{agenda.title}}" />
+	<input type="hidden" name="agenda_url" value="{{agenda.url}}" />
+	<input type="hidden" name="agenda_id" value="{{agenda.id}}" />
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="sortableContainer"> 
+    <span>Shownote</span>
+    <form action="/shownote/" method="POST">{% csrf_token %}
+      <div> title: {{ shownoteform.title }}</div>
+      <div> agenda : {{ shownoteform.agenda }}</div>
+      <div> person : {{ shownoteform.person }}</div>
+      
+      <input type="submit" value="Submit" />
+
+    <ul id="sortable2" class="connectedSortable">
+      
+    </ul>
+    </form>
+  </div>
+
+  <div style="clear: both;"></div>
+  
+</div>
+{% include "footer.html" %}
