@@ -91,7 +91,6 @@ def shownote(request):
             list_id = request.POST.getlist('agenda_id')
             for i in range(len(list_title)):
                 shownotes.append(Shownote(title=list_title[i], url=list_url[i]))
-
             FikanoteDB(number = number
                        , title=form.cleaned_data['title']
                        , person=form.cleaned_data['person'].split(",")
@@ -103,11 +102,7 @@ def shownote(request):
             for i in range(len(list_id)):
                 AgendaDB.objects.filter(id__exact=list_id[i]).delete()
 
-            response = json.dumps({'status':'success'})  # convert to JSON
-        else:
-            response = json.dumps({'status':'fail'})  # convert to JSON
-
-        return HttpResponse(response, content_type="application/json")
+        return HttpResponseRedirect('/') 
         
     else:
         raise Http404
