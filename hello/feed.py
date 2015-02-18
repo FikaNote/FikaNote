@@ -19,7 +19,7 @@ def feed(request):
         feed.add_item(
             title=episode.title
             , link=url
-            , author_email='Kosuke Nagano"
+            , author_email='Kosuke Nagano'
             , description=episode.agenda
             , pubdate=episode.date
             )
