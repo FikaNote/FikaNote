@@ -35,4 +35,5 @@ And goto `http://localhost:5000`.
 - [ ] Add database backup script.
 - [X] Add Feed function
 - [ ] Add API.
-- [ ] Realtime update/reflect agenda by several browser window. 
+- [ ] Realtime update/reflect agenda by several browser window.
+		use pushpin.org?
