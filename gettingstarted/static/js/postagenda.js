@@ -10,7 +10,7 @@ angular.module('addAgenda', [])
   $scope.addAgenda = function() {
     $scope.agendas.push({text:$scope.agendaText, done:false});
     $scope.agendaText = '';
-    $http.post('/agenda', {data:$scope.agendaText}
+    $http.post('/add', {data:$scope.agendaText}
          ).
       success(function(data, status, headers, config) {
       console.log(data);
