@@ -107,6 +107,10 @@ def shownote(request):
     else:
         raise Http404
 
+def add(request):
+    return HttpResponseRedirect('/agenda/') 
+
+
 def db(request):
 
     greeting = Greeting()
