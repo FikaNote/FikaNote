@@ -14,7 +14,7 @@ $(document).ready(function() {
         $.post(url, data, 'json')
          .done(function(response) {
              $('#agenda_list').prepend('<li><a href="' + response.url + '" target="_blank" class="livepreview"> ' + response.title + '</a></li>');
-             $('#id_url').empty();
+             $('#id_url').val('');
          })
          .fail(function(response) {
              console.warn(response);
