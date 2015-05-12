@@ -21,7 +21,21 @@ $(document).ready(function() {
          });
         return false;
     });
+    $('.delete-agenda').click(function () {
+        //use original 'this'
+        $.ajax({
+            type: 'DELETE',
+            url: '/agenda/',
+            dataType:'json',
+            data: { id: $(this).attr('id') },
+            success: function(res) {
+                console.log(res);
+            }
+        });
+        $(this).parent().remove();
+    });
 });
+
 </script>
 
 <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
@@ -42,7 +56,7 @@ $(document).ready(function() {
   <div class="agenda">
     <ul id="agenda_list">
       {% for agenda in agendas %}
-      <li><a href="{{agenda.url}}" target="_blank" class="livepreview">{{agenda.title|default:"No Title"}}</a></li>
+      <li><a href="{{agenda.url}}" target="_blank" class="livepreview agenda">{{agenda.title|default:"No Title"}}</a><i class="delete-agenda icon-trash-empty" id="{{agenda.id}}"><span>delete</span></i></li>
       {% endfor %}
     </ul>
   </div>
