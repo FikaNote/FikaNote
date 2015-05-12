@@ -227,3 +227,6 @@ ul.people-list li.box .name {
 .delete-agenda:hover {
     opacity:0.5;
 }
+.delete-agenda span {
+    display:none;
+}

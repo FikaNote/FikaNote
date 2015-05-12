@@ -4,6 +4,7 @@ import requests
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
+from django.http import QueryDict
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
@@ -64,7 +65,17 @@ def agenda(request):
             response = json.dumps({'status':'fail'})  # convert to JSON
 
         return HttpResponse(response, content_type="application/json")
-        
+
+    elif request.method == 'DELETE': 
+        delete = QueryDict(request.body)
+        id = delete.get('id')
+        if id :
+            AgendaDB.objects.filter(id__exact=id).delete()
+            response = json.dumps({'status':'success'})  # convert to JSON
+        else:
+            response = json.dumps({'status':'fail'})  # convert to JSON
+        return HttpResponse(response, content_type="application/json")
+
     else:
         raise Http404
 
