@@ -3,20 +3,20 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 admin.autodiscover()
 
-import hello.views
-import hello.feed
+import app.views
+import app.feed
 
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'fikanote.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
-    url(r'^$', hello.views.index, name='index'),
-    url(r'^(?P<number>\d+)', hello.views.episode, name='episode'),
-    url(r'^agenda', hello.views.agenda, name='agenda'),
-    url(r'^add', hello.views.add, name='add'),
-    url(r'^shownote', hello.views.shownote, name='shownote'),
-    url(r'^feed/', hello.feed.feed, name='feed'),
+    url(r'^$', app.views.index, name='index'),
+    url(r'^(?P<number>\d+)', app.views.episode, name='episode'),
+    url(r'^agenda', app.views.agenda, name='agenda'),
+    url(r'^add', app.views.add, name='add'),
+    url(r'^shownote', app.views.shownote, name='shownote'),
+    url(r'^feed/', app.feed.feed, name='feed'),
     url(r'^admin/', include(admin.site.urls)),
 
 
