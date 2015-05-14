@@ -4,16 +4,14 @@
 from agendaform import AgendaForm
 from django.shortcuts import render
 import requests
+from django.http import HttpResponse,Http404,QueryDict
 from .models import FikanoteDB, AgendaDB, Shownote
 import urllib2
 from BeautifulSoup import BeautifulSoup
-
+import json
 import datetime
 
 def agenda(request):
-    import json
-    from django.http import HttpResponse,Http404
-
     if request.method == 'GET': 
         agendas = AgendaDB.objects().order_by('-date')
         form = AgendaForm() 
