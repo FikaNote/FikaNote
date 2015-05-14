@@ -1,17 +1,15 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from .models import FikanoteDB, AgendaDB, Shownote
 from django.template import RequestContext
 from shownoteform import ShownoteForm
 from agendaform import AgendaForm
 from django.shortcuts import render
+import json
 
 def shownote(request):
-    import json
-    from django.http import HttpResponse,Http404
-
     if request.method == 'GET': 
         agendas = AgendaDB.objects().order_by('-date')
         return render(request, 'edit_shownote.html', 
