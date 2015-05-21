@@ -8,6 +8,7 @@ from shownoteform import ShownoteForm
 from agendaform import AgendaForm
 from django.shortcuts import render
 import json
+import datetime
 
 def shownote(request):
     if request.method == 'GET': 
