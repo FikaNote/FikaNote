@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from django.http import HttpResponse,Http404
+from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .models import FikanoteDB, AgendaDB, Shownote
 from django.template import RequestContext
 from shownoteform import ShownoteForm
