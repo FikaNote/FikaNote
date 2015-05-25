@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
 from .models import Greeting
-from .models import FikanoteDB, AgendaDB
+from .models import FikanoteDB
 
 def index(request):
     episodes = FikanoteDB.objects.order_by('-date')

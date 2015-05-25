@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #coding:utf-8
-import requests
 from django.http import HttpResponse
 from .models import FikanoteDB
 from django.utils import feedgenerator
