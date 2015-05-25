@@ -6,6 +6,8 @@ from .models import FikanoteDB
 from django.utils import feedgenerator
 
 def feed(request):
+    assert request.method == 'GET',  "error on request method"
+
     feed=feedgenerator.Rss201rev2Feed(
         title='FikaNote'
         , link='https://fikanote.herokuapp.com/'
