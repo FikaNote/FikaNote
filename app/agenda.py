@@ -3,9 +3,8 @@
 
 from agendaform import AgendaForm
 from django.shortcuts import render
-import requests
 from django.http import HttpResponse,Http404,QueryDict
-from .models import FikanoteDB, AgendaDB, Shownote
+from .models import AgendaDB, Shownote
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import json
@@ -37,9 +36,9 @@ def agenda(request):
 
     elif request.method == 'DELETE': 
         delete = QueryDict(request.body)
-        id = delete.get('id')
-        if id :
-            AgendaDB.objects.filter(id__exact=id).delete()
+        delete_id = delete.get('id')
+        if delete_id :
+            AgendaDB.objects.filter(id__exact=delete_id).delete()
             response = json.dumps({'status':'success'})  # convert to JSON
         else:
             response = json.dumps({'status':'fail'})  # convert to JSON

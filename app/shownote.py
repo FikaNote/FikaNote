@@ -1,13 +1,11 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from django.http import HttpResponse,Http404,HttpResponseRedirect
+from django.http import Http404,HttpResponseRedirect
 from .models import FikanoteDB, AgendaDB, Shownote
-from django.template import RequestContext
 from shownoteform import ShownoteForm
 from agendaform import AgendaForm
 from django.shortcuts import render
-import json
 import datetime
 
 def shownote(request):
