@@ -5,5 +5,6 @@ python:
 install:
   - "pip install -r requirements.txt --allow-all-external"
 # command to run tests
-script: DJANGO_SETTINGS_MODULE="fikanote.settings" manage.py test
+# script: DJANGO_SETTINGS_MODULE="fikanote.settings" manage.py test
+script: manage.py test
 
