@@ -16,24 +16,21 @@ $ source venv/bin/activate
 
 And goto `http://localhost:5000`.
 
+# Test
+
+Run following command.
+
+```
+$ python manage.py test
+```
+
 # ToDo
-- [X] Create mockup
-- [X] add shownote
 - [ ] edit shownote
-- [X] add agenda
-- [X] add agenda by AJAX
 - [ ] edit agenda
-- [X] delete agenda / move to shownote
-- [X] Create mockup of create shownote
-- [X] Solve CSRF protection error
-- [X] Fix date display
-- [X] Add Google Analytics
-- [X] Show attendee name.
 - [ ] Add Login function(github)
 - [ ] Add Person page. (/person/<person_name>)
 - [ ] Track link click. (/link/<id_url_in_agenda>)
 - [ ] Add database backup script.
-- [X] Add Feed function
 - [ ] Add API.
 - [ ] Realtime update/reflect agenda by several browser window.
 		use pushpin.org?
