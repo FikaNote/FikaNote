@@ -5,6 +5,7 @@ Django==1.6.5
 django-toolbelt==0.0.1
 djangotoolbox==1.6.2
 feedgenerator==1.7
+feedparser<=5.0.0
 gunicorn==19.0.0
 mongoengine==0.8.7
 nose==1.3.4
