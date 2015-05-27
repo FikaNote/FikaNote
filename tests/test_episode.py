@@ -2,6 +2,7 @@ import unittest
 from django.test.client import Client
 from django.db import models
 from app.models import FikanoteDB
+from urlparse import urlparse
 
 class EpisodeTest(unittest.TestCase):
     def setUp(self):
@@ -21,8 +22,7 @@ class EpisodeTest(unittest.TestCase):
         target = "/" + str(len(self.episodes)+1)
         expectedPath = '/'
         # GET request 
-        print target
         response = self.client.get(target)
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(urlparse(response.location).path, expectedPath)
+        self.assertEqual(urlparse(response['Location']).path, expectedPath)
         
