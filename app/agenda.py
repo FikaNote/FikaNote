@@ -4,7 +4,7 @@
 from agendaform import AgendaForm
 from django.shortcuts import render
 from django.http import HttpResponse,Http404,QueryDict
-from .models import AgendaDB
+from app.models import AgendaDB
 import urllib2
 from BeautifulSoup import BeautifulSoup
 import json

@@ -3,8 +3,8 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
-from .models import Greeting
-from .models import FikanoteDB
+from app.models import Greeting
+from app.models import FikanoteDB
 
 def index(request):
     episodes = FikanoteDB.objects.order_by('-date')
