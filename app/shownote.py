@@ -2,7 +2,7 @@
 #coding:utf-8
 
 from django.http import Http404,HttpResponseRedirect
-from .models import FikanoteDB, AgendaDB, Shownote
+from app.models import FikanoteDB, AgendaDB, Shownote
 from shownoteform import ShownoteForm
 from agendaform import AgendaForm
 from django.shortcuts import render

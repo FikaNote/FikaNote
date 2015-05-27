@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 from django.http import HttpResponse
-from .models import FikanoteDB
+from app.models import FikanoteDB
 from django.utils import feedgenerator
 
 def feed(request):
