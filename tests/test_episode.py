@@ -12,17 +12,18 @@ class EpisodeTest(unittest.TestCase):
 
     def test_get_episode(self):
         for number in range(1 , len(self.episodes)):
-            target = "/" + str(number)
+            target = "/" + str(number) + "/"
             # GET request 
             response = self.client.get(target)
             # expect to return 200 OK 
             self.assertEqual(response.status_code, 200)
 
     def test_get_episode_incorrect_num(self):
-        target = "/" + str(len(self.episodes)+1)
+        target = "/" + str(len(self.episodes)+1) + "/" # +1 for incorrect number.
         expectedPath = '/'
         # GET request 
         response = self.client.get(target)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 301)
         self.assertEqual(urlparse(response['Location']).path, expectedPath)
+
         
