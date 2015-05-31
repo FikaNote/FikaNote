@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding:utf-8
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
 
 from app.models import Greeting
 from app.models import FikanoteDB
@@ -15,7 +15,7 @@ def index(request):
 def episode(request, number):
     episode = FikanoteDB.objects(number=int(number)).first()
     if episode is None:
-        return HttpResponseRedirect('/') 
+        return HttpResponsePermanentRedirect('/') 
 
     person = episode['person']
     shownotes = episode['shownotes']
