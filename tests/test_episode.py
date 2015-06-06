@@ -26,4 +26,22 @@ class EpisodeTest(unittest.TestCase):
         self.assertEqual(response.status_code, 301)
         self.assertEqual(urlparse(response['Location']).path, expectedPath)
 
+    def test_get_episode_incorrect_string1(self):
+        target = "/a12/" 
+        # GET request 
+        response = self.client.get(target)
+        self.assertEqual(response.status_code, 404)
+
+    def test_get_episode_incorrect_string2(self):
+        target = "/12a/" 
+        # GET request 
+        response = self.client.get(target)
+        self.assertEqual(response.status_code, 404)
+
+    def test_get_episode_incorrect_string3(self):
+        target = "/hoge/" 
+        # GET request 
+        response = self.client.get(target)
+        self.assertEqual(response.status_code, 404)
+
         
