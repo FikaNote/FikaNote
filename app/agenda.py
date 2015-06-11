@@ -9,6 +9,7 @@ import urllib2
 from BeautifulSoup import BeautifulSoup
 import json
 import datetime
+import httplib
 
 def agenda(request):
     if request.method == 'GET': 
@@ -22,10 +23,15 @@ def agenda(request):
     elif request.method == 'POST': 
         form = AgendaForm(request.POST) 
         if form.is_valid(): 
-            url = form.cleaned_data['url']
-            req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
-            soup = BeautifulSoup(urllib2.urlopen(req))
-            title = soup.title.string
+            try:
+                url = form.cleaned_data['url']
+                req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
+                soup = BeautifulSoup(urllib2.urlopen(req))
+                title = soup.title.string
+             
+             except httplib.BadStatusLine as e:
+                title = "UNNAMED URL"
+                
             AgendaDB(url=url, title=title, date=datetime.datetime.utcnow()).save()
 
             response = json.dumps({'status':'success', 'url':url, 'title':title})  # convert to JSON
