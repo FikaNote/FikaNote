@@ -29,7 +29,7 @@ def agenda(request):
                 soup = BeautifulSoup(urllib2.urlopen(req))
                 title = soup.title.string
 
-             except httplib.BadStatusLine as e:
+            except httplib.BadStatusLine as e:
                 title = "UNNAMED URL"
 
             AgendaDB(url=url, title=title, date=datetime.datetime.utcnow()).save()
