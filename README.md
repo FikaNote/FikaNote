@@ -14,6 +14,14 @@ $ source venv/bin/activate
 (venv)$ foreman start web
 ```
 
+If you have not prepared venv directory, you should run following command.
+
+```
+$ pip install virtualenv
+$ mkdir venv
+$ virtualenv --no-site-package venv
+```
+
 And goto `http://localhost:5000`.
 
 # Test
