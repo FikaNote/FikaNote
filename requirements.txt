@@ -12,3 +12,4 @@ psycopg2==2.5.3
 pymongo==2.7.2
 requests==2.5.1
 static3==0.5.1
+logging
