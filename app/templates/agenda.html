@@ -2,6 +2,20 @@
 
 <script type="text/javascript" src="/static/js/csrf_token_ajax.js"></script>
 <script>
+function deleteAgenda() {
+    //use original 'this'
+    $.ajax({
+        type: 'DELETE',
+        url: '/agenda/',
+        dataType:'json',
+        data: { id: $(this).attr('id') },
+        success: function(res) {
+            console.log(res);
+        }
+    });
+    $(this).parent().remove();
+}
+
 $(document).ready(function() {
     $('#id_url').focus();
     $('#agenda').submit(function() {  // AJAX by submit
@@ -13,7 +27,8 @@ $(document).ready(function() {
         var data = {url: $('#id_url').val()}
         $.post(url, data, 'json')
          .done(function(response) {
-             $('#agenda_list').prepend('<li><a href="' + response.url + '" target="_blank" class="livepreview"> ' + response.title + '</a></li>');
+             $('#agenda_list').prepend('<li><a href="' + response.url + '" target="_blank" class="livepreview"> ' + response.title + '</a><i class="delete-agenda icon-trash-empty" id="' + response.id + '"><span>delete</span></i></li>');
+             $('.delete-agenda').click(deleteAgenda);
              $('#id_url').val('');
          })
          .fail(function(response) {
@@ -21,19 +36,7 @@ $(document).ready(function() {
          });
         return false;
     });
-    $('.delete-agenda').click(function () {
-        //use original 'this'
-        $.ajax({
-            type: 'DELETE',
-            url: '/agenda/',
-            dataType:'json',
-            data: { id: $(this).attr('id') },
-            success: function(res) {
-                console.log(res);
-            }
-        });
-        $(this).parent().remove();
-    });
+    $('.delete-agenda').click(deleteAgenda);
 });
 
 </script>
@@ -43,7 +46,7 @@ $(document).ready(function() {
 
 <div id="contents">
 <div class="episode">
-  
+
   <h3>Input suggested agenda.</h3>
   <div class="agenda">
       <form id="agenda" action="/agenda/" method="POST">{% csrf_token %}
