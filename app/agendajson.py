@@ -1,14 +1,9 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from django.shortcuts import render
-from django.http import HttpResponse,Http404,QueryDict
+from django.http import HttpResponse,Http404
 from app.models import AgendaDB
-import urllib2
-from BeautifulSoup import BeautifulSoup
 import json
-import datetime
-import httplib
 
 def agendajson(request):
     if request.method == 'POST':
