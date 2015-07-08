@@ -230,3 +230,7 @@ ul.people-list li.box .name {
 .delete-agenda span {
     display:none;
 }
+
+div.spinner {
+  position: fixed !important;
+}
