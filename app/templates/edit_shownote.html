@@ -37,7 +37,7 @@
     <ul id="sortable1" class="connectedSortable">
       {% for agenda in agendas %}
       <li class="ui-state-default">
-	<a href="{{agenda.url}}" target="_blank">{{agenda.title}}</a>
+	<a href="{{agenda.url}}" target="_blank">{{agenda.title|safe}}</a>
 	<input type="hidden" name="agenda_title" value="{{agenda.title}}" />
 	<input type="hidden" name="agenda_url" value="{{agenda.url}}" />
 	<input type="hidden" name="agenda_id" value="{{agenda.id}}" />
