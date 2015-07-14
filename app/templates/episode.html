@@ -21,7 +21,7 @@
       <h3>Show Notes</h3>
       <div class="shownotes"><ul>
 	  {% for shownote in shownotes %}
-	  <li><a href="{{shownote.url}}" target="_blank">{{shownote.title}}</a></li>
+	  <li><a href="{{shownote.url}}" target="_blank">{{shownote.title|safe}}</a></li>
 	  {% endfor %}
 	</ul>
       </div>

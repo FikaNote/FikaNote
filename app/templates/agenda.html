@@ -88,7 +88,7 @@ $(document).ready(function() {
   <div class="agenda">
     <ul id="agenda_list">
       {% for agenda in agendas %}
-      <li><a href="{{agenda.url}}" target="_blank" class="livepreview agenda">{{agenda.title|default:"No Title"}}</a><i class="delete-agenda icon-trash-empty" id="{{agenda.id}}"><span>delete</span></i></li>
+      <li><a href="{{agenda.url}}" target="_blank" class="livepreview agenda">{{agenda.title|safe|default:"No Title"}}</a><i class="delete-agenda icon-trash-empty" id="{{agenda.id}}"><span>delete</span></i></li>
       {% endfor %}
     </ul>
   </div>
