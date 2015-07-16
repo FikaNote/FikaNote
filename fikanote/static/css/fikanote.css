@@ -234,3 +234,8 @@ ul.people-list li.box .name {
 div.spinner {
   position: fixed !important;
 }
+
+.agenda .date-agenda {
+    font-size:70%;
+    color: #DBB;
+}
