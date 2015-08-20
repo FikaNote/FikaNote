@@ -6,6 +6,7 @@ from app.models import FikanoteDB, AgendaDB, Shownote
 from shownoteform import ShownoteForm
 from agendaform import AgendaForm
 from django.shortcuts import render
+from app.views import episode
 import datetime
 
 def shownote(request):
@@ -38,6 +39,7 @@ def shownote(request):
             # delete id's item from agendadb
             for i in range(len(list_id)):
                 AgendaDB.objects.filter(id__exact=list_id[i]).delete()
+            return episode(request, number)
 
         return HttpResponseRedirect('/')
 
