@@ -9,17 +9,17 @@ from django.shortcuts import render
 import datetime
 
 def shownote(request):
-    if request.method == 'GET': 
+    if request.method == 'GET':
         agendas = AgendaDB.objects().order_by('-date')
-        return render(request, 'edit_shownote.html', 
-                      {'agendas': agendas 
+        return render(request, 'edit_shownote.html',
+                      {'agendas': agendas
                        , 'agendaform': AgendaForm()
-                       , 'shownoteform': ShownoteForm() 
+                       , 'shownoteform': ShownoteForm()
                        } )
 
-    elif request.method == 'POST': 
-        form = ShownoteForm(request.POST) 
-        if form.is_valid(): 
+    elif request.method == 'POST':
+        form = ShownoteForm(request.POST)
+        if form.is_valid():
             number = FikanoteDB.objects().count()+1
             # add to shownote
             shownotes = []
@@ -39,7 +39,7 @@ def shownote(request):
             for i in range(len(list_id)):
                 AgendaDB.objects.filter(id__exact=list_id[i]).delete()
 
-        return HttpResponseRedirect('/') 
-        
+        return HttpResponseRedirect('/')
+
     else:
         raise Http404
