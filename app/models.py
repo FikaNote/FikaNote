@@ -10,7 +10,7 @@ import mongoengine
 from mongoengine import Document, EmbeddedDocument
 from mongoengine.fields import *
 
-MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds029811.mongolab.com:29811/fikanotedb'
+MONGODB_URI = 'mongodb://fikakou:0US3ZKxV@ds031314-a0.mongolab.com:31314,ds031314-a1.mongolab.com:31314/fikanotedb26?replicaSet=rs-ds031314'
 
 mongoengine.connect('fikanotedb', host=MONGODB_URI)
 
