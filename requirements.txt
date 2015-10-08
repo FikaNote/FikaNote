@@ -1,7 +1,7 @@
 BeautifulSoup4
 dj-database-url==0.3.0
 dj-static==0.0.6
-Django==1.6.5
+Django
 django-toolbelt==0.0.1
 djangotoolbox==1.6.2
 feedgenerator==1.7
