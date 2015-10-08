@@ -1,4 +1,7 @@
-from django.conf.urls import patterns, include, url, handler404
+from django.conf import settings
+from django.conf.urls import include, url
+from django.conf.urls.static import static
+
 
 from django.contrib import admin
 admin.autodiscover()
@@ -9,7 +12,7 @@ import app.shownote
 import app.agenda
 import app.agendajson
  
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     # url(r'^$', 'fikanote.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
@@ -22,5 +25,5 @@ urlpatterns = patterns('',
     url(r'^shownote', app.shownote.shownote),
     url(r'^feed/', app.feed.feed),
     url(r'^admin/', include(admin.site.urls)),
-)
+]
 
