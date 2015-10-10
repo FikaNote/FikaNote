@@ -3,14 +3,13 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponsePermanentRedirect
 
-from app.models import Greeting
-from app.models import FikanoteDB
+from .models import Greeting
+from .models import FikanoteDB, Shownote
 
 def index(request):
     episodes = FikanoteDB.objects.order_by('-date')
     return render(request, 'index.html', 
-                  {'episodes': episodes
-                   } )
+                  {'episodes': episodes } )
 
 def episode(request, number):
     episode = FikanoteDB.objects(number=int(number)).first()

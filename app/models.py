@@ -24,13 +24,13 @@ class FikanoteDB(Document):
     person = ListField(StringField())
     agenda = StringField()
     date = DateTimeField()
-    shownotes = ListField(EmbeddedDocumentField(Shownote))
-
+    shownotes = EmbeddedDocumentListField(Shownote)
+    
     meta = {'collection': 'fikanotedb'}
 
 class AgendaDB(Document):
     url = URLField()
     title = StringField()
     date = DateTimeField()
-
+    
     meta = {'collection': 'agendadb'}
