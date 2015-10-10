@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 #coding:utf-8
 
-from agendaform import AgendaForm
+from .agendaform import AgendaForm
 from django.shortcuts import render
 from django.http import HttpResponse,Http404,QueryDict
 from app.models import AgendaDB
-import urllib2
-from BeautifulSoup import BeautifulSoup
+import urllib
+from bs4 import BeautifulSoup
 import json
 import datetime
-import httplib
+import http.client
 
 def agenda(request):
     if request.method == 'GET':
@@ -25,11 +25,11 @@ def agenda(request):
         if form.is_valid():
             try:
                 url = form.cleaned_data['url']
-                req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
-                soup = BeautifulSoup(urllib2.urlopen(req))
+                req = urllib.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
+                soup = BeautifulSoup(urllib.urlopen(req))
                 title = soup.title.string
 
-            except httplib.BadStatusLine as e:
+            except http.client.BadStatusLine as e:
                 title = "UNNAMED URL"
 
             agendaItem = AgendaDB(url=url, title=title, date=datetime.datetime.utcnow())

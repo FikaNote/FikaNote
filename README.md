@@ -11,7 +11,7 @@ Run following command.
 ```
 $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt --allow-all-external
-(venv)$ foreman start web
+(venv)$ python manage.py runserver
 ```
 
 If you have not prepared venv directory, you should run following command.

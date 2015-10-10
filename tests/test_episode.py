@@ -2,7 +2,7 @@ import unittest
 from django.test.client import Client
 from django.db import models
 from app.models import FikanoteDB
-from urlparse import urlparse
+import urllib
 
 class EpisodeTest(unittest.TestCase):
     def setUp(self):
@@ -24,7 +24,7 @@ class EpisodeTest(unittest.TestCase):
         # GET request 
         response = self.client.get(target)
         self.assertEqual(response.status_code, 301)
-        self.assertEqual(urlparse(response['Location']).path, expectedPath)
+        self.assertEqual(urllib.parse(response['Location']).path, expectedPath)
 
     def test_get_episode_incorrect_string1(self):
         target = "/a12/" 
