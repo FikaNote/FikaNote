@@ -26,8 +26,13 @@ def agenda(request):
             try:
                 url = form.cleaned_data['url']
                 req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
-                soup = BeautifulSoup(urllib2.urlopen(req))
-                title = soup.title.string
+                res = urllib2.urlopen(req)
+                mime = res.info().getheader('content-type')
+                if mime == 'application/pdf':
+                    title = url
+                else:
+                    soup = BeautifulSoup(res)
+                    title = soup.title.string
 
             except httplib.BadStatusLine as e:
                 title = "UNNAMED URL"
