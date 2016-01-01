@@ -29,6 +29,8 @@ def shownote(request):
             list_id = request.POST.getlist('agenda_id')
             for i in range(len(list_title)):
                 shownotes.append(Shownote(title=list_title[i], url=list_url[i]))
+            if len(shownotes) == 0:
+                return HttpResponseRedirect('/')
             FikanoteDB(number = number
                        , title=form.cleaned_data['title']
                        , person=form.cleaned_data['person'].split(",")
