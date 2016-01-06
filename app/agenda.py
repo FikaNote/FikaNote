@@ -25,7 +25,10 @@ def agenda(request):
         if form.is_valid():
             try:
                 url = form.cleaned_data['url']
-                req = urllib2.Request(url, None, headers = { 'User-Agent' : 'Mozilla/5.0' })
+                req = urllib2.Request(url, None)
+                req.add_header("User-Agent" , "Mozilla/5.0")
+                req.add_header("Accept" , "*/*")
+                req.add_header("Accept-Encoding" , "identity")
                 res = urllib2.urlopen(req)
                 mime = res.info().getheader('content-type')
                 if mime == 'application/pdf':
