@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404,QueryDict
 from app.models import AgendaDB
 import urllib.request, urllib.error, urllib.parse
-from BeautifulSoup import BeautifulSoup
+from bs4 import BeautifulSoup
 import json
 import datetime
 import http.client
