@@ -2,7 +2,7 @@ import unittest
 from django.test.client import Client
 from django.db import models
 from app.models import FikanoteDB
-from urlparse import urlparse
+from urllib.parse import urlparse
 
 class EpisodeTest(unittest.TestCase):
     def setUp(self):
