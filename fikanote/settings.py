@@ -79,10 +79,6 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.6/howto/static-files/
-
-STATIC_URL = '/static/'
-
 # Parse database configuration from $DATABASE_URL
 DATABASES['default'] = dj_database_url.config()
 
@@ -93,12 +89,11 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    STATIC_ROOT,
-)
+STATIC_ROOT = BASE_DIR + '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR + "/staticfiles/"
+]
 
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
