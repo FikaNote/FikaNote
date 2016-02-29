@@ -10,8 +10,8 @@
   "logo": "http://res.freestockphotos.biz/pictures/16/16192-illustration-of-a-hot-cup-of-coffee-pv.png",
   "success_url": "/",
   "scripts": {
-    "postdeploy": "python manage.py runserver"
-  },
+    "postdeploy": "sh -c 'python manage.py runserver'"
+  },    
   "env": {
   },
   "image": "heroku/python",
