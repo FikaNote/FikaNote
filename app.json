@@ -1,0 +1,22 @@
+{
+  "name": "FikaNote",
+  "description": "This app does note discussion.",
+  "keywords": [
+    "productivity",
+    "HTML5"
+  ],
+  "website": "http://fikanote.herokuapp.com/",
+  "repository": "https://github.com/gmkou/FikaNote",
+  "logo": "http://res.freestockphotos.biz/pictures/16/16192-illustration-of-a-hot-cup-of-coffee-pv.png",
+  "success_url": "/",
+  "env": {
+  },
+  "image": "heroku/python",
+  "addons": [
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-python"
+    }
+  ]
+}
