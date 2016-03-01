@@ -34,11 +34,11 @@ def agenda(request):
             req.add_header("Accept", "*/*")
             req.add_header("Accept-Encoding", "identity")
             res = urllib.request.urlopen(req)
-            mime = res.info().getheader('content-type')
+            mime = res.getheader('content-type')
             if mime == 'application/pdf':
                 title = url
             else:
-                soup = BeautifulSoup(res)
+                soup = BeautifulSoup(res, "html.parser")
                 title = soup.title.string
         except http.client.BadStatusLine as e:
             title = "UNNAMED URL"
