@@ -57,14 +57,14 @@ def agenda(request):
         return HttpResponse(response, content_type="application/json")
     
     elif request.method == 'DELETE':
-            delete = QueryDict(request.body)
-            delete_id = delete.get('id')
-            if delete_id:
-                AgendaDB.objects.filter(id__exact=delete_id).delete()
-                response = json.dumps({'status': 'success'})  # convert to JSON
-            else:
-                response = json.dumps({'status': 'fail'})  # convert to JSON
-                return HttpResponse(response, content_type="application/json")
+        delete = QueryDict(request.body)
+        delete_id = delete.get('id')
+        if delete_id:
+            AgendaDB.objects.filter(id__exact=delete_id).delete()
+            response = json.dumps({'status': 'success'})  # convert to JSON
+        else:
+            response = json.dumps({'status': 'fail'})  # convert to JSON
+        return HttpResponse(response, content_type="application/json")
             
     else:
             raise Http404
