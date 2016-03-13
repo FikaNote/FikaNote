@@ -287,6 +287,14 @@ div.spinner {
     width: 100%;
 }
 
+.agenda-item {
+  overflow: hidden;
+}
+
+.agenda-item:hover {
+  overflow: visible;;
+}
+
 @media screen and (max-device-width: 500px) {
   #header-site #header-site-inner nav ul li a {
     width: auto;
