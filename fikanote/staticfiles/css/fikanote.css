@@ -284,6 +284,7 @@ div.spinner {
 
 .button__edit-shownote {
     margin: 10px 0;
+    width: 100%;
 }
 
 @media screen and (max-device-width: 500px) {
