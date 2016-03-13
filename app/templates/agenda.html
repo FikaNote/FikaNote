@@ -80,7 +80,7 @@ $(document).ready(function() {
   <div class="agenda">
       <form id="agenda" action="/agenda/" method="POST">{% csrf_token %}
       {{ form.as_ul }}
-      <input type="submit" value="Submit" />
+      <input class="button button__agenda" type="submit" value="Submit" />
       </form>
   </div>
 

@@ -267,11 +267,32 @@ div.spinner {
     border-radius: 4px;
 }
 
-@media screen and (max-device-width: 400px) {
+.button {
+
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #222;
+  cursor: pointer;
+  padding: 6px 12px;
+  text-align: center;
+}
+
+.button__agenda {
+    margin: 10px;
+}
+
+.button__edit-shownote {
+    margin: 10px 0;
+}
+
+@media screen and (max-device-width: 500px) {
   #header-site #header-site-inner nav ul li a {
     width: auto;
   }
+}
 
+@media screen and (max-device-width: 400px) {
   #footer-site #footer-site-inner .footer-site-side {
     width: 100%;
   }
