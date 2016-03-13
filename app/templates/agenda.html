@@ -58,11 +58,14 @@ $(document).ready(function() {
              $('#' + response.id).click(deleteAgenda);
              $('#id_url').val('');
              spinner.spin();
+             $('#submit-agenda').prop('disabled', false);
          })
          .fail(function(response) {
              console.warn(response);
              spinner.spin();
+             $('#submit-agenda').prop('disabled', false);
          });
+         $('#submit-agenda').prop('disabled', true);
         return false;
     });
     $('.delete-agenda').click(deleteAgenda);
@@ -80,7 +83,7 @@ $(document).ready(function() {
   <div class="agenda">
       <form id="agenda" action="/agenda/" method="POST">{% csrf_token %}
       {{ form.as_ul }}
-      <input class="button button__agenda" type="submit" value="Submit" />
+      <input id="submit-agenda" class="button button__agenda" type="submit" value="Submit" />
       </form>
   </div>
 
