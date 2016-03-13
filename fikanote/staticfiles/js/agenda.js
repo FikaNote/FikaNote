@@ -18,6 +18,7 @@ function deleteAgenda() {
 }
 
 $(document).ready(function() {
+    $(".livepreview").livePreview();
     $('#id_url').focus();
     $('#agenda').submit(function() {  // AJAX by submit
         if ($('#id_url').val() === '') {
