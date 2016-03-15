@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 import json
 import datetime
 import http.client
-
+from PyPDF2 import PdfFileReader
 
 def agenda(request):
     if request.method == 'GET':
@@ -36,7 +36,13 @@ def agenda(request):
             res = urllib.request.urlopen(req)
             mime = res.getheader('content-type')
             if mime == 'application/pdf':
-                title = url
+                # save to temporal file
+                f = open('workfile.pdf', 'wb')
+                f.write(res.read())
+                f.close()
+                # open pdf file
+                input = PdfFileReader(open('workfile.pdf', 'rb'))
+                title = input.getDocumentInfo().title
             else:
                 soup = BeautifulSoup(res, "html.parser")
                 title = soup.title.string
