@@ -53,6 +53,10 @@ docs/_build/
 # PyBuilder
 target/
 
+# sass
+fikanote/staticfiles/sass/*.css
+fikanote/staticfiles/sass/*.css.map
+
 venv/
 backup/
 fikanote/static/

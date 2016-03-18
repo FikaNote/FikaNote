@@ -9,8 +9,9 @@
 	<meta name="viewport" content="width=device-width">
 
 	{% load staticfiles %}
+	{% load sass_tags %}
 	<link href="/static/css/normalize.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="/static/css/fikanote.css" type="text/css" />
+	<link rel="stylesheet" href="{% sass_src 'sass/fikanote.scss' %}" type="text/css" />
 	<link href="/static/css/livepreview-demo.css" rel="stylesheet" type="text/css">
 	<link href="/static/font/css/fontello.css" rel="stylesheet" type="text/css">
 	<link rel="shortcut icon" href="/static/image/favicon.ico">

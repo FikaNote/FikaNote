@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'sass_processor',
     'app'
 )
 
@@ -94,6 +95,7 @@ STATIC_ROOT = BASE_DIR + '/static/'
 STATICFILES_DIRS = [
     BASE_DIR + "/staticfiles/"
 ]
+SASS_PROCESSOR_ROOT = STATICFILES_DIRS[0]
 
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
