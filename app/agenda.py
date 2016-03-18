@@ -30,11 +30,14 @@ def agenda(request):
         try:
             url = form.cleaned_data['url']
             req = urllib.request.Request(url, None)
-            req.add_header("User-Agent", "Mozilla/5.0")
-            req.add_header("Accept", "*/*")
+            req.add_header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36")
+            req.add_header("Accept", "text/html,application/xhtml+xml,application/xml")
+            req.add_header("Accept-Language", "ja")
             req.add_header("Accept-Encoding", "identity")
+            req.add_header("Pragma", "no-cache")
             res = urllib.request.urlopen(req)
             mime = res.getheader('content-type')
+
             if mime == 'application/pdf':
                 # save to temporal file
                 f = open('workfile.pdf', 'wb')
