@@ -29,26 +29,9 @@ def agenda(request):
             return HttpResponse(response, content_type="application/json")
         try:
             url = form.cleaned_data['url']
-            req = urllib.request.Request(url, None)
-            req.add_header("User-Agent", "Mozilla/5.0")
-            req.add_header("Accept", "*/*")
-            req.add_header("Accept-Encoding", "identity")
-            res = urllib.request.urlopen(req)
-            mime = res.getheader('content-type')
-            if mime == 'application/pdf':
-                # save to temporal file
-                f = open('workfile.pdf', 'wb')
-                f.write(res.read())
-                f.close()
-                # open pdf file
-                input = PdfFileReader(open('workfile.pdf', 'rb'))
-                title = input.getDocumentInfo().title
-            else:
-                soup = BeautifulSoup(res, "html.parser")
-                title = soup.title.string
+            title = agendaGetTitle(url)
         except http.client.BadStatusLine as e:
             title = "UNNAMED URL"
-
 
         agendaItem = AgendaDB(url=url,
                               title=title,
@@ -74,3 +57,28 @@ def agenda(request):
             
     else:
             raise Http404
+
+
+def agendaGetTitle(url):
+    req = urllib.request.Request(url, None)
+    req.add_header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.87 Safari/537.36")
+    req.add_header("Accept", "text/html,application/xhtml+xml,application/xml")
+    req.add_header("Accept-Language", "ja")
+    req.add_header("Accept-Encoding", "identity")
+    req.add_header("Pragma", "no-cache")
+    res = urllib.request.urlopen(req)
+    mime = res.getheader('content-type')
+
+    if mime == 'application/pdf':
+        # save to temporal file
+        f = open('workfile.pdf', 'wb')
+        f.write(res.read())
+        f.close()
+        # open pdf file
+        input = PdfFileReader(open('workfile.pdf', 'rb'))
+        title = input.getDocumentInfo().title
+    else:
+        soup = BeautifulSoup(res, "html.parser")
+        title = soup.title.string
+
+    return title
