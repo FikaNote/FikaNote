@@ -80,3 +80,5 @@ def agendaGetTitle(url):
     else:
         soup = BeautifulSoup(res, "html.parser")
         title = soup.title.string
+
+    return title
