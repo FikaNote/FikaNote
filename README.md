@@ -2,7 +2,7 @@
 
 ShowNote service.
 
-[![Join the chat at https://gitter.im/gmkou/FikaNote](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gmkou/FikaNote?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Code Health](https://landscape.io/github/gmkou/FikaNote/master/landscape.svg?style=flat)](https://landscape.io/github/gmkou/FikaNote/master) [![Build Status](https://travis-ci.org/gmkou/FikaNote.svg?branch=master)](https://travis-ci.org/gmkou/FikaNote)
+[![Code Health](https://landscape.io/github/FikaNote/FikaNote/master/landscape.svg?style=flat)](https://landscape.io/github/FikaNote/FikaNote/master) [![Build Status](https://travis-ci.org/FikaNote/FikaNote.svg?branch=master)](https://travis-ci.org/FikaNote/FikaNote)
 
 # Usage
 
