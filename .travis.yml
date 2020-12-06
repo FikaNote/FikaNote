@@ -7,3 +7,6 @@ install:
 # command to run tests
 script: python manage.py test
 
+jobs:
+  - DATABASE_USER=fikanote_travis
+  - DATABASE_PASSWORD=tNcZyFGz6VW
