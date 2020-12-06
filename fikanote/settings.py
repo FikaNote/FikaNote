@@ -84,6 +84,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # Parse database configuration from $DATABASE_URL
+# Parse database configuration from $DATABASE_URL
 DATABASES['default'] = dj_database_url.config()
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
