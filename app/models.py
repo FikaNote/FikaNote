@@ -9,8 +9,8 @@ import os
 class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
 
-USER = os.getenv('DATABASE_USER')
-PASSWORD = os.getenv('DATABASE_PASSWORD')
+USER = os.environ.get("DATABASE_USER")
+PASSWORD = os.environ.get("DATABASE_PASSWORD")
 
 MONGODB_URI = "mongodb+srv://" + USER + ":" + PASSWORD + "@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority"
 mongoengine.connect('fikanotedb', host=MONGODB_URI)
