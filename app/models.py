@@ -12,7 +12,7 @@ class Greeting(models.Model):
 USER = os.getenv('DATABASE_USER')
 PASSWORD = os.getenv('DATABASE_PASSWORD')
 
-MONGODB_URI = "mongodb+srv://" + USER + ":" + PASSWORD + "@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority".format(USER, PASWORD)
+MONGODB_URI = "mongodb+srv://" + USER + ":" + PASSWORD + "@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority"
 mongoengine.connect('fikanotedb', host=MONGODB_URI)
 
 
