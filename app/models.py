@@ -9,7 +9,7 @@ class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
 
 
-MONGODB_URI = 'mongodb+srv://fikaadmin:ZJ6TtyTZMXA@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority
+MONGODB_URI = 'mongodb+srv://fikaadmin:ZJ6TtyTZMXA@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority'
 mongoengine.connect('fikanotedb', host=MONGODB_URI)
 
 
