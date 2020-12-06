@@ -48,6 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 )
 
 ROOT_URLCONF = 'fikanote.urls'
@@ -99,7 +102,8 @@ SASS_PROCESSOR_ROOT = STATICFILES_DIRS[0]
 
 TEMPLATE_LOADERS = [
     'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader'
+    'django.template.loaders.app_directories.Loader',
+    'django.template.context_processors.request'
 ]
 
 TEMPLATES = [
