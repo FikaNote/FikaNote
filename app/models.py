@@ -3,15 +3,16 @@ import mongoengine
 from mongoengine import Document, EmbeddedDocument
 from mongoengine.fields import *
 
+import os
 
 # Create your models here.
 class Greeting(models.Model):
     when = models.DateTimeField('date created', auto_now_add=True)
 
-
-MONGODB_URI = 'mongodb+srv://fikaadmin:ZJ6TtyTZMXA@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority'
+MONGODB_USER = os.environ.get("DATABASE_USER")
+MONGODB_PASSWORD = os.environ.get("DATABASE_PASSWORD")
+MONGODB_URI = "mongodb+srv://" + MONGODB_USER + ":" + MONGODB_PASSWORD + "@fikanotedb.ltkpy.mongodb.net/fikanotedb?retryWrites=true&w=majority"
 mongoengine.connect('fikanotedb', host=MONGODB_URI)
-
 
 class Shownote(EmbeddedDocument):
     url = URLField()
