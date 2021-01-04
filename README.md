@@ -2,7 +2,7 @@
 
 ShowNote service.
 
-[![Code Health](https://landscape.io/github/FikaNote/FikaNote/master/landscape.svg?style=flat)](https://landscape.io/github/FikaNote/FikaNote/master) [![Build Status](https://travis-ci.org/FikaNote/FikaNote.svg?branch=master)](https://travis-ci.org/FikaNote/FikaNote)
+[![Build Status](https://travis-ci.com/FikaNote/FikaNote.svg?branch=master)](https://travis-ci.com/FikaNote/FikaNote)
 
 # Usage
 
