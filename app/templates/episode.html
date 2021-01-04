@@ -5,11 +5,11 @@
 <div class="episode">
   <span class="date">{{episode.date|date:"M d Y"}}</span>
   <h2><a href="/{{episode.number}}/">{{episode.title}}</a></h2>
-  
+
   <div class="post">
     <div class="episode-description">
       <p>{{episode.agenda}}</p>
-      
+
       <div class="episode-people">
 	<h3>Starring</h3>
 	<ul class="people-list inline">
@@ -17,7 +17,7 @@
 	    <li>{{name}}</li>
 	  {% endfor %}
       </ul></div>
-      
+
       <h3>Show Notes</h3>
       <div class="shownotes"><ul>
 	  {% for shownote in shownotes %}
