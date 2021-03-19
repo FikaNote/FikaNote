@@ -40,5 +40,5 @@ soupsieve==2.0.1
 sqlparse==0.4.1
 static3==0.7.0
 strict-rfc3339==0.7
-urllib3==1.26.2
+urllib3==1.26.3
 Werkzeug==1.0.1
