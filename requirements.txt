@@ -8,7 +8,7 @@ clickclick==20.10.2
 connexion==2.7.0
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==3.1.4
+Django==3.1.13
 django-sass-processor==0.8.2
 djangotoolbox==1.8.0
 dnspython==2.0.0
